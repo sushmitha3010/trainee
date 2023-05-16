@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MyJavaProject" default="jar" xmlns:sonar="antlib:org.sonar.ant">
+	 <property file="build.properties"/>
+
+	<target name="clean">
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}" />
+	</target>
+
+	<target name="compile" depends="clean">
+		<mkdir dir="${build.dir}" />
+		<javac srcdir="${src.dir}" destdir="${build.dir}">
+			<classpath>
+				<fileset dir="${lib.dir}">
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</javac>		
+	</target>
+
+	<target name="copyMessages" >
+		
+			<copy todir="${build.dir}/resources" overwrite="true">
+				<fileset dir="${resources.dir}">
+				</fileset>
+			</copy>
+	</target>
+	<target name="movedependentJars">
+
+		<copy todir="${build.dir}/lib" overwrite="true">
+			<fileset dir="${lib.dir}" excludes="">
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="jar" depends="compile,copyMessages,movedependentJars">
+		<mkdir dir="${dist.dir}" />
+		<jar destfile="${dist.dir}/postoffice.jar" basedir="${build.dir}">
+			<manifest>
+				<attribute name="Main-Class" value="com.chainsys.postoffice.postofficemanagement.postOfficeManagementProject" />
+			</manifest>
+		</jar>
+	</target>	
+</project>
