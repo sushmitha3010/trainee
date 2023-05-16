@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://WWW.thymleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Contact Us</title>
+<link rel="stylesheet" href="/CSS/contact.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+<a th:href="@{/}"><em class="fa-solid fa-landmark"></em>&nbsp;</a>
+
+<section class="contact">
+<div class="content">
+<h2>Contact Us</h2><br>
+<p>Have a feedback or suggestion to improve our services.<br>We encourage you to communicate the same to us.<p> 
+</div><br>
+<div class="container">
+<div class="contactInfo">
+<div clss="box">
+<div class="icon"><em class="fa-solid fa-location-dot"></em></div>
+<div class="text">
+<h3>Address</h3>
+<p>4671 Sugar Camp Road,<br>Owatonna,Minnesota,<br>55060</p>
+</div>
+</div><br>
+
+<div class="box">
+<div class="icon"></div>
+<div class="text">
+<h3>Phone</h3>
+<p>507-475-6094</p>
+
+
+
+</div>
+</div><br>
+
+<div class="box">
+<div class="icon"></div>
+<div class="text">
+<h3>Email</h3>
+<p>wrub7d7810e@temparary-mail.net</p>
+
+</div>
+</div>
+</div><br>
+
+<div class="contactForm">
+<form th:action="@{/contactUs}">
+<h2>Send Message</h2>
+<div class="inputBox">
+<input type="text" name="" required="required">
+<span>Full Name</span>
+
+</div><br>
+
+<div class="inputBox">
+<input type="text" name="" required="required">
+<span>Email</span>
+</div><br>
+
+<div class="inputBox">
+<textarea required="required"></textarea>
+<span>type Your Message.....</span>
+</div><br>
+
+<div class="inputBox">
+<input type="Submit" name="" value="Send">
+</div><br>
+
+</form>
+
+</div>
+</div>
+</section>
+
+</body>
+</html>

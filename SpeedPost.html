@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://WWW.thymleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<script th:src="@{/Javascript/Speed.js}"></script>
+<title>Speed Post</title>
+<link rel="stylesheet" th:href="@{/CSS/SpeedPost.css}">
+<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+
+</head>
+<body>
+<body>
+     <div class="menu-bar" id="SpeedPost">
+      <ul>
+       <ol><a th:href="@{/parcelDashBoard}" class="speedPost"><em class="fa-sharp fa-solid fa-backward-fast">&nbsp;&nbsp;</em>Back</a></ol>
+     
+       </ul>
+     <ul>
+     <ol><a th:href="@{/}" class="speedPost"><em class="fa-solid fa-landmark"></em>Home</a></ol>
+     
+     </ul>
+     <ul>
+     <ol><a th:href="@{/registeredPostModel}" class="speedPost"><em class="fa-sharp fa-regular fa-paste"></em>&nbsp;Registered Post</a> 
+     </ol>
+     <ol class="active"><a th:href="@{/speedPostModel}"><em class="fa-sharp fa-regular fa-paste"></em><br>&nbsp;Speed Post</a></ol>
+       
+           
+     <ol><a th:href="@{/logout}" class="speedPost"><em class="fa-sharp fa-solid fa-arrow-right-from-bracket"></em><br>Log Out</a></ol>
+     </ul>
+     </div><br>
+     <h1>Welcome To Speed Post !!!</h1>
+     <div class="main">
+     <div class="register">
+
+     <br><br>
+
+    <form id="speedForm" name="form" th:action="@{/speedPost}"  method="get" th:object="${speedPost}" align="center">
+
+    
+     &nbsp; &nbsp; &nbsp;  <label>Sender Name:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;  <input type="text" name="SenderName" id="SenderName" th:value="${session.UserName}" readonly="readonly"  placeholder="SenderName" required/>
+     <br><br>
+
+                   
+     &nbsp; &nbsp; &nbsp;<label>Sender Mobile Number:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;<input type="tel" name="senderMobileNo" id="SenderMobileNumber" th:value="${session.mobileNo}" placeholder="SenderMobileNumber" readonly required />
+     <br><br>
+
+     &nbsp; &nbsp; &nbsp; <label>Sender Address:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;<input type="textarea" name="SenderAddress" id="SenderAddress" th:field="*{senderAddress}" placeholder="SenderAddress"  onkeyup="addressValidation1()" pattern="^(.+){10,50}[a-z,.-A-Z0-9\s]" title="Address  Must Conatin minimum 10 and maximum 50 Characters ,.-numbers,a-zA-Z must include" required />
+     <div class="sendAddress">
+     <span id="senderAddress-validation"></span>
+     <br></div>
+
+                  
+     &nbsp; &nbsp; &nbsp;<label>Distance:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;<input type="number" name="Kms" id="Kms" th:field="*{kms}" placeholder="Distance"  onkeyup="kmsValidation()" pattern="^[1-9]\d*(\.\d+)?$" title="Kilometers Not Contain Zero ANd Negative Values" required />
+     <div class="kms">
+     <span id="kms-validation"></span>
+     </div>
+     <br>
+    
+     &nbsp; &nbsp; &nbsp;  <label>Receiver Name:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;  <input type="text" name="ReceiverName" id="ReceiverName" th:field="*{receiverName}" placeholder="ReceiverName" onkeyup="regexValid()" pattern="^[A-Za-z]*$" title="Name should contains only letters" required />
+    <div class="sendName">
+     <span id="name-validation"></span>
+     <br></div>
+
+                   
+     &nbsp; &nbsp; &nbsp;<label>Receiver MobileNumber:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;<input type="tel" name="ReceiverMobileNumber" id="ReceiverMobileNumber" th:field="*{receiverMobileNo}" placeholder="ReceiverMobileNumber" onkeyup="mobileNoValidation2()" pattern="[6-9][0-9]{9}" title="Mobile Number Must Conatin 10 Digits and Only Starts With 6,7,8 or 9" required />
+     <div class="recievermobile">
+     <span id="receiverMobileNo-validation"></span>
+     <br></div>
+
+     &nbsp; &nbsp; &nbsp; <label>Receiver Address:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;<input type="textarea" name="ReceiverAddress" id="ReceiverAddress" th:field="*{receiverAddress}" placeholder="ReceiverAddress"  onkeyup="addressValidation2()" pattern="^(.+){10,50}[a-z,.-A-Z0-9\s]" title="Address  Must Conatin minimum 10 and maximum 50 Characters ,.-numbers,a-zA-Z must include" required />
+     <div class="receiverAddress">
+     <span id="receiverAddress-validation"></span>
+     <br></div>
+               
+      <input type="checkbox" required><button type="submit" onclick="return Speedcalculation()">Calculate</button><br><br>
+  
+  
+      &nbsp; &nbsp; &nbsp; <label>Parcel Charge:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;<input type="text" name="ParcelCharge" id="parcelCharge" th:field="*{charge}" placeholder="ParcelCharge"  required /><br><br>
+                  
+    
+      Are You Ready To Pay?&emsp;<input type="checkbox" ><button type="submit" >Payment</button>
+    
+    <button a th:href="@{/parcelDashBoard}">Back</a></button>
+ 
+    </form>
+
+
+<script type= "text/Javascript" th:src= "@{/Javascript/ParcelRegex.js}"></script>
+   
+<script>
+
+function Speedcalculation(){
+var a=parseInt(document.getElementById("Kms").value);
+var b=6;
+ if(a < 0){
+	alert("Kms does not Enter Zero");
+}
+ else{
+	 
+	 var parcelCharge=a*b;
+	 document.getElementById("parcelCharge").value=parcelCharge;
+	 return false;
+ }
+
+
+}
+</script>
+
+</body>
+</html>

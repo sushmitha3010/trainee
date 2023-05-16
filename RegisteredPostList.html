@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+
+
+<title>Registered Post</title>
+
+
+<!-- slick grid start -->
+
+<link rel="stylesheet"
+	th:href="@{/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css}"
+	type="text/css" />
+
+<link rel="stylesheet" th:href="@{/SlickGrid/slick.grid.css}"
+	type="text/css" />
+
+
+<link rel="stylesheet"
+	th:href="@{/SlickGrid/controls/slick.columnpicker.css}" type="text/css" />
+<link rel="stylesheet"
+	th:href="@{/SlickGrid/css/smoothness/GridMenu.css}">
+
+<link rel="stylesheet" th:href="@{/CSS/RegisteredPostList.css}">
+<!-- slick grid end -->
+
+</head>
+
+<body>
+
+	<div style="position: relative; margin-top: 100px;">
+
+
+		<div style="width: 1250px;">
+
+			<div id="myGrid2" style="width: 100%; height: 500px;"></div>
+
+		</div>
+		<form th:action="@{/registerCheck}" method="get"
+			th:object="${registeredPost}">
+			<button id="delivered" type="submit">Delivered</button>
+			<button id="processing" th:formaction="@{/registerProcess}"
+				type="submit">Processing</button>
+			<input type="text" id="leaveIdList" th:field="*{trackingNo}"
+				style="display: none;">
+		</form>
+
+	</div>
+	<input type="text" id="regAction" th:value="${registeredPostUserList}">
+	<div th:attr="data-myvar=${registeredPostUserList}" id="myDiv"></div>
+
+    <script th:src="@{/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js}"></script>
+
+	<script th:src="@{/SlickGrid/lib/jquery-1.7.min.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.dataview.js}"></script>
+
+	<script th:src="@{/SlickGrid/lib/jquery.event.drag-2.2.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.core.js}"></script>
+
+	<script th:src="@{/SlickGrid/lib/jquery-1.7.min.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.grid.js}"></script>
+
+	<script th:src="@{/SlickGrid/lib/firebugx.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.core.js}"></script>
+
+	<script th:src="@{/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js}"></script>
+
+	<script th:src="@{/SlickGrid/lib/jquery.event.drag-2.2.js}"></script>
+
+	<script th:src="@{/SlickGrid/plugins/slick.cellrangedecorator.js}"></script>
+
+	<script th:src="@{/SlickGrid/plugins/slick.checkboxselectcolumn.js}"></script>
+
+	<script th:src="@{/SlickGrid/plugins/slick.autotooltips.js}"></script>
+
+	<script th:src="@{/SlickGrid/plugins/slick.cellselectionmodel.js}"></script>
+
+	<script th:src="@{/SlickGrid/plugins/slick.cellrangeselector.js}"></script>
+
+	<script th:src="@{/SlickGrid/plugins/slick.cellcopymanager.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.formatters.js}"></script>
+
+	<script th:src="@{/SlickGrid/plugins/slick.rowselectionmodel.js}"></script>
+
+	<script th:src="@{/SlickGrid/controls/slick.columnpicker.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.grid.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.editors.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.dataview.js}"></script>
+
+	<script th:src="@{/SlickGrid/controls/slick.pager.js}"></script>
+
+	<script th:src="@{/SlickGrid/Interaction.js}"></script>
+
+	<script type="text/javascript" th:src="@{/JavaScript/CheckBox.js}"></script>
+
+
+	<script type="text/javascript"
+		th:src="@{/JavaScript/RegisteredPostAction.js}"></script>
+	<script type="text/javascript">
+		registeredPostAction();
+	</script>
+
+
+
+</body>
+
+</html>
+

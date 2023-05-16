@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://WWW.thymleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Senior Citizen</title>
+<script th:src="@{/Javascript/depositValid.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/CSS/SeniorDep.css}">
+<link rel="stylesheet"
+	th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+
+</head>
+<body>
+ <div class="menu-bar" id="SeniorCitizen">
+ <ul>
+<ol><a th:href="@{/depositDashBoard}" class="SeniorCitizen"><em class="fa-sharp fa-solid fa-backward-fast">&nbsp;&nbsp;</em>Back</a></ol>
+</ul>
+     <ul>
+     <ol><a th:href="@{/}" class="SeniorCitizen"><em class="fa-solid fa-landmark"></em>Home</a></ol>
+     
+     </ul>
+     <ul>
+     <ol><a th:href="@{/recurring}" class="SeniorCitizen"><em class="fa-solid fa-comments-dollar"></em>&nbsp;Recurring Deposit</a>
+ 
+     </ol>
+     <ol><a th:href="@{/timeDepositModel}" class="SeniorCitizen"><em class="fa-solid fa-comments-dollar"></em><br>&nbsp;Time Deposit</a></ol>
+     <ol class="active"><a th:href="@{/seniorCitizenModel}"><em class="fa-solid fa-comments-dollar"></em>&nbsp;SeniorCitizen Deposit</a>
+     </ol><br><br><br><br><br>
+         
+                
+     <ol><a th:href="@{/}"><em class="fa-sharp fa-solid fa-arrow-right-from-bracket"></em><br>Log Out</a></ol>
+     </ul>
+     </div><br>
+      <h1>Welcome To Senior Citizen Saving Scheme !!!</h1>
+      <div class="senior">
+     
+     </div>
+     <div class="container"><br>
+     <p>A post office senior citizen saving scheme makes a good investment option for people who have retired as it offers an interest rate of 8.0%.</p>
+     <p>Post Office Senior Citizen Saving Scheme Maturity Period of SCSS: 5 years.</p>
+     <p>Safe and reliable investment High returns.<p>
+     <p>Safe to invest in the scheme.</p>
+     <p>High interest rates are offered.</p>
+     <p>An individual who has attained the age of 60 years or above at the time of opening an SCSS account.</p>
+     </div>
+     
+     <div class="main">
+     <div class="register">
+ 
+     <form id="seniorDeposit" th:action="@{/seniorCitizen}" method="get" th:object="${seniorCitizen}" align="center">
+     <br><br>  
+     &nbsp; &nbsp; &nbsp;  <label>User Name:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;  <input type="text" name="customerName" id="UserName" th:value="${session.UserName}" readonly="readonly" placeholder="UserName" required />
+     <br><br>
+
+                   
+     &nbsp; &nbsp; &nbsp;<label>Mobile Number:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;<input type="tel" name="customermobileNo" id="MobileNumber"  placeholder="MobileNumber" th:value="${session.mobileNo}" onkeyup="mobileNoValidation()" required />  
+     
+     <br><br>
+
+     &nbsp; &nbsp; &nbsp; <label>Account Number:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;<input type="text" name="customeraccountNo" id="AccountNumber" placeholder="AccountNumber" readonly="readonly" th:value="${session.AccountNo}" onkeyup="accountNoValidation()" required />
+     <br><br>
+
+     &nbsp; &nbsp; &nbsp;<label>Principle Amount:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;<input type="text" name="depositAmount" id="PrincipleAmount" placeholder="PrincipleAmount" onkeyup="amountValidation1()" pattern="^[1-9]\d*(\.\d+)?$" title="Amount Not Contain Zero ANd Negative Values" required />
+     <div class="amt">
+     <span id="amount-validation"></span>
+     <br></div>
+     
+      &nbsp; &nbsp; &nbsp; <label>Age:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;<input type="text" name="Age" id="Age" placeholder="60-99 Only Allowed" onkeyup="ageValidation()" required />
+     <br><br>
+     
+     &nbsp; &nbsp; &nbsp; <label>Age:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;<input type="text" name="age" id="Age" placeholder="Age" onkeyup="ageValidation()" required />
+     <div class="age">
+     <span id ="age-validation"></span>
+     <br></div>
+     
+     <input type="checkbox" required><button onclick="return calculate()">Calculate</button><br><br>
+       
+       
+      &nbsp; &nbsp; &nbsp; <label>Simple Interest:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;<input type="text" name="simpleInterest" id="simpleInterest" placeholder="Simple Interest" required/>
+     <br><br>
+     
+      &nbsp; &nbsp; &nbsp; <label>Maturity Amount:</label>
+     <br>
+     &nbsp; &nbsp; &nbsp;<input type="text" name="paymentMaturity" id="maturityAmount" placeholder="Maturity Amount" required/>
+     <br><br>
+     
+      &nbsp; &nbsp; &nbsp; <label>Total Amount:</label>
+      <br>
+      &nbsp; &nbsp; &nbsp;<input type="text" name="amountTotal" id="totalAmount" placeholder="Total Amount" required/>
+      <br><br>
+      
+    
+     
+     Are You Ready To Pay?&emsp;<input type="checkbox"><button type="submit">Payment</button><br><br>
+     <button><a th:href="@{/depositDashBoard}">Back</a></button>
+  
+    
+  
+     </form>
+    
+   
+    
+     <script type= "text/Javascript" th:src= "@{/Javascript/DepositRegexValidation.js}"></script>
+    
+    </div>
+    </div>
+    <script>
+    
+    function calculate(){
+    	var a=parseInt(document.getElementById("PrincipleAmount").value);
+    	var b= rate=7.4;
+    	var c= time=5*12;
+         
+         
+    	 if(a<0){
+    	alert("Invalid Amount");	 
+    	 }
+    	 else{
+    	var simpleInterest=(a*b*c)/100;
+    	document.getElementById("simpleInterest").value=simpleInterest;
+    	
+    	var maturityAmount=a*5*12;
+    	document.getElementById("maturityAmount").value=maturityAmount;
+    	
+    	var totalAmount= simpleInterest+maturityAmount;
+    	document.getElementById("totalAmount").value=totalAmount;
+    	return false;
+    	 
+    	 }
+    	 return false;
+    	 }
+    
+     </script>
+    
+</body>
+</html>

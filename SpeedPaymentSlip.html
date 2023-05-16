@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://WWW.thymleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Speed Post Payment Slip</title>
+<script th:src="@{/Javascript/PaymentSlip.js}"></script>
+<link rel="stylesheet" th:href="@{/CSS/SpeedPostPaymentSlip.css}">
+</head>
+<body>
+
+<div id="contentToPrint">
+<form th:action="@{/speedSlip}" class="SpeedPostPaymentSlip" method="get" th:object="${speedSlip}">
+<div class="container">
+<div class="stamp">
+<img alt="" th:src="@{/Image/IndianPost.jpg}" id="post">
+</div>
+
+                    <h2>Pay Slip</h2>
+                   
+                            <label>Sender Name:</label>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" name="senderName" id="senderName" readonly="readonly" th:value="${session.UserName}" >
+                            <br>
+                            
+                            <label>Sender Mobile Number:</label>
+                             &emsp;&emsp;<input type="text" name="senderMobileNo" id="senderMobileNumber" th:value="${session.senderMobileNumber}">
+                            <br>
+                            
+                            <label>Sender Address:</label>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" name="senderAddress" id="senderAddress" th:value="${session.senderAddress}">
+                            <br>
+                            
+                            <label>Parcel Weight:</label>
+                            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;<input type="text" name="kms" id="kms" th:value="${session.kms}">
+                            <br>
+                            
+                            <label>Receiver Name:</label>
+                             &emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" name="receiverName" id="receiverName" readonly="readonly" th:value="${session.receiverName}">
+                            <br>
+                            
+                            <label>Receiver Mobile Number:</label>
+                            &emsp;<input type="text" name="receiverMobileNo" id="receiverMobile" th:value="${session.receiverMobileNo}">
+                            <br>
+                            
+                            <label>Receiver Address:</label>
+                            &emsp;&emsp;&emsp;&emsp;<input type="text" name="receiverAddress" id="receiverAddress" th:value="${session.receiverAddress}">
+                            <br>
+                            
+                            <label>Booking Date:</label>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" name="bookingDate" id="bookingDate" th:value="${session.bookingDate}">
+                            <br>
+                            
+                            <label>Tracking Number:</label>
+                            &emsp;&emsp;&emsp;&emsp;<input type="text" name="trackingNo" id="trackingNo" th:value="${session.trackingNo}">
+                            <br>
+                            
+                            <label>Parcel Charge:</label>
+                            &emsp;&emsp;&emsp;&emsp;&nbsp;&emsp;<input type="text" name="charge" id="parcelCharge" th:value="${session.ChargeAmount}">
+                            <br>
+                </form>
+                </div>
+
+<div class="form-actions top">
+                            <div class="row" style="margin-left: 260PX;">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button type="button" th:onclick="location.href='/parcelDashBoard'">Back</button><button class="btnblue" value="button" onclick="printContent('contentToPrint')" style="width: 100px;">
+                                        download
+                                    </button>
+                                  
+                                </div>
+                            </div>
+                            
+                        </div>
+                         
+                        
+                        
+ <script >
+ function printContent(el) {
+     var restorepage = document.body.innerHTML;
+     var printcontent = document.getElementById(el).innerHTML;
+     document.body.innerHTML = printcontent;
+     window.print();
+     document.body.innerHTML = restorepage;
+ }
+ </script>
+    
+    
+
+</body>
+</html>

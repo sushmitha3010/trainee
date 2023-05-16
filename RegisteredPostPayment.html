@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://WWW.thymleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registered Post Payment</title>
+<link rel="stylesheet" th:href="@{/CSS/RegisteredPostPayment.css}">
+<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+
+</head>
+<body>
+<div class="menu-bar">
+       <ul>
+     <ol><a th:href="@{/}"><em class="fa-solid fa-landmark"></em>Home</a></ol>
+     
+     </ul>
+      <ul>
+      <ol><a th:href="@{/registeredPostModel}"><em class="fa-sharp fa-regular fa-paste"></em>&nbsp;Registered Post</a></ol>
+      </li>
+      <ol><a th:href="@{/speedPostModel}"><em class="fa-sharp fa-regular fa-paste"></em><br>&nbsp;Speed Post</a></ol>
+      
+           
+      <ol><a th:href="@{/logout}"><em class="fa-sharp fa-solid fa-arrow-right-from-bracket"></em><br>Log Out</a></ol>
+      </ul>
+      </div><br>
+      <h1>Registered Post Payment</h1>
+      <br><br>
+      <div class="main">
+      <div class="register">
+
+      <form id="recuringForm" th:action="@{/registeredPayment}" th:object="${registeredPayment}"  method="get" align="center">
+    
+      <br><br>
+      &nbsp; &nbsp; &nbsp;  <label>Sender Name:</label>
+      <br>
+      &nbsp; &nbsp; &nbsp;  <input type="text" name="registeredPostUserName" id="SenderName" readonly="readonly" th:value="${session.UserName}"  placeholder="SenderName" required/>
+      <br><br>
+
+
+      &nbsp; &nbsp; &nbsp; <label>Amount:</label>
+      <br>
+      &nbsp; &nbsp; &nbsp;<input type="number" name="registeredPostParcelCharge" id="Amount" placeholder="Amount" th:value="${session.parcelAmount}" required/>
+      <br><br>
+         
+         
+      <button>Pay</button>
+      <button a th:href="@{/parcelDashBoard}">Back</a></button>
+  
+      <script type= "text/Javascript" th:src= "@{/Javascript/DepositRegexValidation.js}"></script>
+    
+    
+    
+     </form>
+
+    </div>
+    </div>
+</body>
+</html>

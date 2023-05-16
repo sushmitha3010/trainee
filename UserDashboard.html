@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>User Dashboard</title>
+<meta charset="UTF-8">
+<script th:src="@{https://kit.fontawesome.com/853be5df50.js}" crossorigin="anonymous"></script>
+<link rel="stylesheet" th:href="@{/CSS/UserDashBoard.css}">
+<link rel="stylesheet" th:href='@{https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href='@{https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css}'>
+</head>
+<body>
+<div class="sidebar">
+<ul class="nav-links">
+<li>
+<a href="#" class="active"> <em class='bx bx-grid-alt'></em><span>DashBoard </span></a>
+</li>
+<li>
+<a th:href="@{/depositDashBoard}"> <em class="fa-solid fa-comments-dollar"></em><span class="links_name">Deposit</span></a>
+</li>
+<li>
+<a th:href="@{/parcelDashBoard}"> <em class='"fa-sharp fa-regular fa-paste'></em><span class="links_name">Parcel Booking</span></a>
+</li>
+<li>
+<a th:href="@{/registerProfileModel}"> <em class="fa-sharp fa-solid fa-user"></em><span class="links_name">Profile</span></a>
+</li>
+<li>
+<a th:href="@{/loginUser}"><em class="fa-sharp fa-solid fa-backward-fast">&nbsp;&nbsp;</em><span class="links_name">Back</span></a>
+</li>
+<li>
+<a th:href="@{/}" onclick="AlertMessage()"> <em class='fa fa-sign-out'></em><span class="links_name">Logout</span></a>
+</li>
+</ul>
+</div>
+
+    <section class="home-section">
+    <nav>
+    <div class="logo">
+<img th:src="@{/Image/PostOffice.jpg}" alt="logo">
+</div>
+    <div class="title">
+<h2>
+<span>Post Office Management</span>
+</h2>
+</div>
+<div class="profile-details">
+        <div class="session">
+        <p th:text="${session.UserName}"></p>
+        </div>
+    </div>
+    </nav>
+    <div class=" post">
+       <img alt="" th:src="@{/Image/pst.jpg}" id="post">         
+       </div>
+    
+   </section>
+   <script>
+   function AlertMessage() {
+	    if (confirm("Are you sure you want to logout?")) {
+	        window.location = '/logout';
+	    }
+	    else {
+	        return false;
+	    }
+	    return true;
+	}
+   </script>
+</body>
+</html>

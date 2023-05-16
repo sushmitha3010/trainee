@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Login</title>
+<link rel="stylesheet" type="text/css" th:href="@{/CSS/User.css}">
+    <link rel="stylesheet"
+	th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+    </head>
+
+</head>
+<body>
+ <br>
+
+    <a th:href="@{/}"><em class="fa-solid fa-landmark"></em>&nbsp;</a>
+
+    <form name="form" th:action="@{/loginpostUser}" method="get" th:object="${login}" align="center">
+
+    <br>
+    <body>
+    <div class="title"><h1>Sign In !!!</h1></div>
+    <div class="container">
+    <div class="left"><br><br><br><br><br><br><br>
+                     
+    <img alt="" th:src="@{/Image/login1.jpg}" id="design">
+    </div>
+    <div class="right">
+    <div class="formBox">
+    <form th:action="@{/loginpostUser}" >
+    
+    
+    
+    <label>User Name:</label>
+    <input type="text" name="userName" id="UserName" placeholder="Enter User Name" required/>
+    <label>Password:</label>
+    <input type="password" name="password" id="Password" placeholder="Enter Password" required/>
+    
+    <input type="submit" name="" value="Sign In">
+  
+    <a th:href="@{/forgetModel}">Forget Password</a>
+    <br>
+   <a th:href="@{/userRegister}">Create Account? Sign Up</a>
+</form>
+</div>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://WWW.thymleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registered Post payment Slip</title>
+<link rel="stylesheet" th:href="@{/CSS/RegisteredPostPaymentSlip.css}">
+<script th:src="@{/Javascript/PaymentSlip.js}"></script>
+</head>
+<body>
+
+
+<div id="contentToPrint">
+<form th:action="@{/registerSlip}" class="RegisteredPostPaymentSlip" method="get" th:object="${registerSlip}">
+<div class="container">
+<div class="stamp">
+<img alt="" th:src="@{/Image/IndianPost.jpg}" id="post">
+</div>
+<h2>Pay Slip</h2>
+                   
+                            <label>Sender Name:</label>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" name="sendUserName" id="senderName" readonly="readonly" th:value="${session.UserName}" >
+                            <br>
+                            
+                            <label>Sender Mobile Number:</label>
+                            &emsp;<input type="text" name="sendUserMobileNo" id="sendUserMobileNo" th:value="${session.mobileNo}">
+                            <br>
+                            
+                            <label>Sender Address:</label>
+                            &emsp;&emsp;&emsp;&emsp;<input type="text" name="sendUserAddress" id="senderAddress" th:value="${session.AccountNo}">
+                            <br>
+                             
+                            <label>Parcel Weight:</label>
+                            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type="text" name="parcelWeight" id="parcelWeight" th:value="${session.parcelWeight}">
+                            <br>
+                            
+                            <label>Receiver Name:</label>
+                            &emsp;&emsp;&emsp;&emsp;<input type="text" name="receiveUserName" id="receiverName" readonly="readonly" th:value="${session.receiverName}">
+                            <br>
+                       
+                            <label>Receiver Mobile Number:</label>
+                            <input type="text" name="receiveUserMobileNo" id="receiveUserMobileNo" th:value="${session.receiverMobileNo}">
+                            <br>
+                            
+                            <label>Receiver Address:</label>
+                            &emsp;&emsp;&emsp;<input type="text" name="receiveUserAddress" id="receiverAddress" th:value="${session.receiverAddress}">
+                            <br>
+                        
+                            <label>Booking Date:</label>
+                            &emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" name="bookingDate" id="bookingDate" th:value="${session.bookingDate}">
+                            <br>
+                         
+                            <label>Tracking Number:</label>
+                            &emsp;&emsp;&emsp;<input type="text" name="trackingNo" id="trackingNo" th:value="${session.trackingNo}">
+                            <br>
+                            
+                            <label>Parcel Charge:</label>
+                            &emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" name="parcelCharge" id="parcelCharge" th:value="${session.ChargeAmount}">
+                            <br>
+</form>
+</div>
+
+    <div class="form-actions top">
+                            <div class="row" style="margin-left: 260PX;">
+                                <div class="col-md-offset-3 col-md-9">
+                                   <button type="button" th:onclick="location.href='/parcelDashBoard'">Back</button> <button class="btnblue" type="button" onclick="printContent('contentToPrint')" style="width: 100px;">
+                                        download
+                                    </button>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://WWW.thymleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registered Post</title>
+<link rel="stylesheet" th:href="@{/CSS/RegisteredPost.css}">
+<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+
+</head>
+<body>
+<div class="menu-bar" id="RegisteredPost">
+        <ul>
+       &emsp;&emsp;<ol><a th:href="@{/parcelDashBoard}" class="RegisteredPost"><em class="fa-sharp fa-solid fa-backward-fast">&nbsp;&nbsp;</em>Back</a></ol>
+     
+       </ul>
+       <ul>
+       &emsp;&emsp; <ol><a th:href="@{/}" class="RegisteredPost"><em class="fa-solid fa-landmark"></em>&nbsp;Home</a></ol>
+     
+       </ul>
+       <ul>
+       &emsp;&emsp;<ol class="active"><a th:href="@{/registeredPostModel}" class="RegisteredPost"><em class="fa-sharp fa-regular fa-paste"></em>&nbsp;Registered Post</a>
+       </ol>
+       &emsp;&emsp;<ol><a th:href="@{/speedPostModel}" class="RegisteredPost">&emsp;&nbsp;<em class="fa-sharp fa-regular fa-paste"></em><br>&emsp;&nbsp;&emsp;Speed Post</a></ol>
+       &emsp;&emsp;<ol><a th:href="@{/logout}" class="RegisteredPost">&emsp;&nbsp;<em class="fa-sharp fa-solid fa-arrow-right-from-bracket"></em><br>&emsp;&emsp;&nbsp;Log Out</a></ol>
+       </ul>
+       </div><br>
+       
+       
+       <h1>Welcome To Registered Post !!!</h1>
+       <div class="main">
+       <div class="register">
+
+
+     
+	
+	  <form id="parcelForm" class="RegisteredPost"  th:action="@{/registeredPost}" method="get" th:object="${registeredPost}" align="center">
+	
+	  &nbsp; &nbsp; &nbsp;  <label>Sender Name:</label>
+      <br>
+      &nbsp; &nbsp; &nbsp;  <input type="text" name="sendUserName" id="SenderName" th:value="${session.UserName}" readonly="readonly"  placeholder="SenderName" required/>
+      <br><br>
+             
+      &nbsp; &nbsp; &nbsp;<label>Sender Mobile Number:</label>
+      <br>
+      &nbsp; &nbsp; &nbsp;<input type="tel" name="sendUserMobileNo" id="SenderMobileNumber" th:value="${session.mobileNo}" placeholder="SenderMobileNumber" required />
+      <br><br>
+
+      &nbsp; &nbsp; &nbsp; <label>Sender Address:</label>
+      <br>
+      &nbsp; &nbsp; &nbsp;<input type="textarea" name="sendUserAddress" id="SenderAddress" placeholder="SenderAddress" th:field="*{sendUserAddress}" onkeyup="addressValidation1()" pattern="^(.+){10,50}[a-z,.-A-Z0-9\s]" title="Address  Must Conatin minimum 10 and maximum 50 Characters ,.-numbers,a-zA-Z must include" required />
+      <div class="senderAddress">
+      <span id="senderAddress-validation"></span>
+      <br></div>
+                
+       &nbsp; &nbsp; &nbsp;<label>Parcel Weight:</label>
+       <br>
+       &nbsp; &nbsp; &nbsp;<input type="number" name="ParcelWeight" id="ParcelWeight"  placeholder="ParcelWeight" onkeyup="parcelWeightValidation()" th:field="*{parcelWeight}" pattern="^[1-9]\d*(\.\d+)?$" title="Parcel Weight Not Contain Zero ANd Negative Values" required />
+       <div class="weight">
+       <span id="weight-validation"></span>
+       </div>
+       <br>
+    
+       &nbsp; &nbsp; &nbsp;  <label>Receiver Name:</label>
+       <br>
+       &nbsp; &nbsp; &nbsp;  <input type="text" name="receiveUserName" id="ReceiverName" placeholder="ReceiverName" th:field="*{receiveUserName}" onkeyup="regexValid()" pattern="^[A-Za-z]*$" title="Name should contains only letters" required />
+       <div class="receiverName">
+       <span id="name-validation"></span>
+       <br></div>
+
+                   
+       &nbsp; &nbsp; &nbsp;<label>Receiver Mobile Number:</label>
+       <br>
+       &nbsp; &nbsp; &nbsp;<input type="tel" name="receiveUserMobileNo" id="ReceiverMobileNumber" placeholder="ReceiverMobileNumber" th:field="*{receiveUserMobileNo}" onkeyup="mobileNoValidation2()" pattern="[6-9][0-9]{9}" title="Mobile Number Must Conatin 10 Digits and Only Starts With 6,7,8 or 9" required />          
+       <div class="receiverMobile">
+       <span id="receiverMobileNo-validation"></span>
+       <br></div>
+
+       &nbsp; &nbsp; &nbsp; <label>Receiver Address:</label>
+       <br>
+       &nbsp; &nbsp; &nbsp;<input type="textarea" name="receiveUserAddress" id="ReceiverAddress" placeholder="ReceiverAddress" th:field="*{receiveUserAddress}"  onkeyup="addressValidation2()" pattern="^(.+){10,50}[a-z,.-A-Z0-9\s]" title="Address Must Contain Minimum 10 and Maximum 50 Characters ,.-numbers,a-zA-Z must include" required />
+       <div class="receiverAddress">
+       <span id="receiverAddress-validation"></span>
+       <br><br></div>
+       
+       	   <input  type="checkbox" required><button onclick="return calculate()">Calculate</button><br><br>
+       
+       
+        &nbsp; &nbsp; &nbsp; <label>Parcel Charge:</label>
+       <br>
+       &nbsp; &nbsp; &nbsp;<input type="text" name="parcelCharge" id="parcelCharge" placeholder="parcelCharge" th:field="*{parcelCharge}" required /><br><br>
+ 
+                    
+		
+	   Are You Ready To Pay?&emsp;<input type="checkbox"><button type="submit">Payment</button>
+			
+	   
+	   <button a th:href="@{/parcelDashBoard}">Back</a></button>
+  
+    
+	   </form>
+
+
+	   <script type= "text/Javascript" th:src= "@{/Javascript/ParcelRegex.js}"></script>
+
+      
+       <script>
+
+     function calculate(){
+	 var a=parseInt(document.getElementById("ParcelWeight").value);
+	 var b=10;
+	 if (a < 0) {
+		 
+		 alert("The Parcel Weight Could Not Less Than Zero")
+			
+			}
+	 else{
+		 
+		 var parcelCharge=a*b;
+		 document.getElementById("parcelCharge").value=parcelCharge;
+		 return false;
+	 }
+}
+
+
+</script>
+
+
+</body>
+</html>

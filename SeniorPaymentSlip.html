@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://WWW.thymleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Senior Payment Slip</title>
+<script th:src="@{/Javascript/PaymentSlip.js}"></script>
+<link rel="stylesheet" type="text/css" href="/CSS/SeniorPaymentSlip.css">
+</head>
+<body>
+
+
+
+
+<div id="contentToPrint">
+<form th:action="@{/seniorSlip}" class="SeniorCitizenPaymentSlip" method="get" th:object="${seniorSlip}">
+<div class="container">
+<div class="stamp">
+<img alt="" th:src="@{/Image/IndianPost.jpg}" id="post">
+</div>
+
+                <h2>Pay Slip</h2>   
+                            <label>Name:</label>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" name="customerName" id="userName" readonly="readonly" th:value="${session.UserName}" >
+                            <br>
+                            
+                           <label>Mobile Number:</label>
+                            &emsp;&emsp;&emsp;<input type="text" name="customermobileNo" id="mobileNumber" th:value="${session.mobNo}">
+                           <br>
+                           
+                           <label> Account Number:</label>
+                           &nbsp;&nbsp;&emsp;&emsp;<input type="text" name="customeraccountNo" id="accountNumber" th:value="${session.acctNo}">
+                           <br>
+                           
+                           <label>Amount:</label>
+                           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" name="depositAmount" id="Amount" th:value="${session.PaymentAmount}">
+                           <br>
+                           
+                           <label>Age:</label>
+                           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" name="age" id="Age" readonly="readonly" th:value="${session.age}">
+                           <br>
+                           
+                           <label>Interest:</label>
+                           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" name="simpleInterest" id="interest" th:value="${session.simepleInterest}">
+                           <br>
+                           
+                           <label>Maturity Amount:</label>
+                           &emsp;&emsp;&nbsp;<input type="text" name="paymentMaturity" id="maturityAmount" th:value="${session.totalMaturity}">
+                           <br>
+                           
+                           <label>Total Amount:</label> 
+                           &emsp;&emsp;&emsp;&nbsp;&nbsp;<input type="text" name="amountTotal" id="totalAmount" th:value="${session.totalAmount}">
+                           <br>
+                           
+                           <label>Deposit Date:</label>
+                           &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;<input type="text" name="amountDepositDate" id="depositDAte" th:value="${session.startdate}">
+                           <br>
+                           
+                            <label>Return Date:</label>
+                            &emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" name="returnDate" id="returnDate" th:value="${session.completeDate}">
+                            <br>
+                </form>
+                </div>
+
+<div class="form-actions top">
+                            <div class="row" style="margin-left: 260PX;">
+                                <div class="col-md-offset-3 col-md-9">
+                                     <button type="button" th:onclick="location.href='/depositDashBoard'">Back</button> <button class="btnblue" value="button" onclick="printContent('contentToPrint')" style="width: 100px;">
+                                        download
+                                    </button>
+                                  
+                                </div>
+                            </div>
+                            
+                        </div>
+                       
+</body>
+</html>

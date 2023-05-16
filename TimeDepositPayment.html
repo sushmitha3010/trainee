@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://WWW.thymleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Time Deposit Payment</title>
+<link rel="stylesheet" type="text/css" th:href="@{/CSS/SeniorCitizenPay.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/CSS/Timepayment.css}">
+<link rel="stylesheet"
+	th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+
+</head>
+<body>
+<div class="menu-bar">
+      <ul>
+     <ol><a th:href="@{/}"><em class="fa-solid fa-landmark"></em>Home</a></ol>
+     
+     </ul>
+      <ul>
+      <ol><a th:href="@{/recurring}"><em class="fa-solid fa-comments-dollar"></em>&nbsp;Recurring Deposit</a>
+      </ol>
+      <ol><a th:href="@{/timeDepositModel}"><em class="fa-solid fa-comments-dollar"></em><br>&nbsp;Time Deposit</a></ol>
+      <ol><a href="@{/seniorCitizenModel}"><em class="fa-solid fa-comments-dollar"></em>&nbsp;SeniorCitizen Deposit</a>
+      </ol><br><br><br><br><br>
+         
+      <ol><a href="/logout"><em class="fa-sharp fa-solid fa-arrow-right-from-bracket"></em><br>Log Out</a></ol>
+                
+                
+                
+      </ul>
+      </div><br>
+      <h1>Time Deposit Payment</h1>
+      <div class="main">
+      <div class="register">
+
+      <form id="timeForm" th:action="@{/timePayment}" class="TimeDepositPayment" method="get" th:object="${timePayment}" align="center">
+      <br><br>
+   
+
+      &nbsp; &nbsp; &nbsp; <label>User Name:</label>
+      <br>
+      &nbsp; &nbsp; &nbsp;<input type="text" name="userName" id="UserName" readonly="readonly"  placeholder="UserName" th:value="${session.UserName}" required />
+      <br><br>
+					
+      &nbsp; &nbsp; &nbsp;<label>Amount:</label><br>
+      &nbsp; &nbsp; &nbsp;<input type="number" name="amount" id="Amount"  placeholder="Amount" th:value="${session.depositAmount}" required />
+      <br><br>
+      <br>
+     
+
+               
+      <button>Pay</button>
+      <a th:href="@{/depositDashBoard}">Back</a>
+  
+    
+      </form>
+      </div>
+      </div>
+
+<script type= "text/Javascript" th:src= "@{/Javascript/DepositRegexValidation.js}"></script>
+    
+</body>
+</html>

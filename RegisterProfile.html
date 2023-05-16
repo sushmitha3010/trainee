@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://WWW.thymleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Profile</title>
+<link rel="stylesheet" type="text/css" th:href="@{/CSS/Profile.css}">
+<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+
+ <button onclick="history.back()"><em class="fa-sharp fa-solid fa-backward-fast">&nbsp;&nbsp;</em>Go Back</button>
+
+</head>
+<a th:href="@{/userDashBoard}">Back</a>
+<body>
+
+    <div class="navbar-top">
+        <div class="title">
+            <h1>Profile</h1>
+        </div>
+
+    </div>
+    <!-- End -->
+
+    <!-- Sidenav -->
+    <div class="sidenav">
+        <div class="profile">
+            <img th:src="@{https://imdezcode.files.wordpress.com/2020/02/imdezcode-logo.png}" alt="" width="100" height="100">
+
+            <div class="name">
+                <input type="text" readonly="readonly" th:value="${session.UserName}">
+            </div>
+        </div>
+
+        <div class="sidenav-url">
+            <div class="url">
+                <a th:href="@{#profile}" class="active">Profile</a>
+                
+            </div>
+           
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Main -->
+    <div class="main">
+        <h2>IDENTITY</h2>
+        <div class="card">
+            <div class="card-body">
+                <em class="fa fa-pen fa-xs edit"></em>
+                <form th:action="@{/registerProfile}" method="get" th:object="${regProfile}">
+               
+                <table><caption></caption>
+                    <tbody>
+                    <th>Profile</th>
+                        <tr>
+                            <td>Name</td>
+                            <td>:</td>
+                            <td><input type="text" name="userName" id="userName" readonly="readonly" th:value="${session.UserName}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td>:</td>
+                            <td><input type="text" name="password" id="password" th:value="${session.Password}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Mobile Number</td>
+                            <td>:</td>
+                            <td><input type="text" name="mobileNo" id="mobileNo" th:value="${session.MobileNo}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Account Number</td>
+                            <td>:</td>
+                            <td><input type="text" name="accountNo" id="accountNo" readonly="readonly" th:value="${session.AccountNo}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Mail Id</td>
+                            <td>:</td>
+                            <td><input type="text" name="mailId" id="mailId" th:value="${session.Email}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>:</td>
+                            <td><input type="textarea" name="address" id="address" th:value="${session.Address}" required></td>
+                        </tr>
+                       
+                    
+                    </tbody>
+                    
+                </table>
+                 <button class="submitButton" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+       
+                </div>
+               
+</body>
+</html>
