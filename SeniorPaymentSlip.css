@@ -1,0 +1,42 @@
+@charset "ISO-8859-1";
+
+button{
+margin-left: 200px;
+margin-top: 800px;
+}
+
+#post{
+height:100px;
+width:160px;
+margin-left: 370px;
+}
+h2{
+margin-left: 0px;
+margin-top: -50px;
+}
+.container{
+ padding: 20px;
+ width:550px;
+ height:700px;
+ position: absolute;
+ margin-left:630px;
+ margin-top:390px;
+ transform: translate(-50%, -50%);
+ border:1px solid #ccc;
+ border-radius:1px;
+ background:white;
+  -webkit-box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  -moz-box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  }
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 60%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #e9e9e9;
+  font-family: Montserrat,Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}

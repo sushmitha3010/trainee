@@ -1,0 +1,242 @@
+@charset "ISO-8859-1";
+
+body{   
+        background-size: 2600px;
+        background-position: center;
+        box-sizing: border-box;
+        
+        background-repeat: no-repeat;
+        font-family: sans-serif;
+        height: 1000px;
+        margin-left: -300px;
+        background-color:Lavender;
+}
+
+.menu-bar {
+    background: rgb(153, 51, 0);
+    text-align: center;
+    margin-left: 300px;
+}
+
+.menu-bar ul {
+    display: inline-flex;
+    list-style: none;
+    color: #fff;
+    margin-left: -50px;
+}
+
+.menu-bar ul ol {
+    width: 120px;
+    margin: 15px;
+    padding: 10px;
+    
+}
+
+.menu-bar ul ol a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.active, .menu-bar ul ol:hover {
+background: rgb(128,0,0);
+border-radius: 3px;
+}
+
+.menu-bar .fa {
+    margin-right: 8px;
+}
+
+
+div.main{
+    width: 300px;
+    margin: 100px auto 0px auto;
+    padding-left: 100px;
+}
+
+h2{
+    text-align: center;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+div.register{
+    background-color: rgba(0,0 , 0, 0.3);
+    width: 450px;
+    height:700px;
+    font-size: 17px;
+    margin-left:270px;
+    margin-right:10px;
+    padding-top:20px;
+    padding-bottom:20px;
+    align-items: center;
+    border-radius: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 2px 2px 15px rgba(0,0 , 0, 0.3);
+    color: #fff;
+    margin-top: 100px;
+    
+}
+
+form#register{
+    
+    align-items: center;
+    
+}
+
+label{
+    font-family: sans-serif;
+    font-size: 18px;
+    font-style: italic;
+}
+input#UserName{
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#MobileNumber {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#AccountNumber {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#PrincipleAmount {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#Periods {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#simpleInterest {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#maturityAmount {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#totalAmount {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+
+span{
+font-size: 15px;
+font-weight: 15px;
+color: red;
+
+
+}
+table{
+margin-left: 550px;
+margin-top: -350px;
+ background-color: rgba(0,0 , 0, 0.3);
+}
+caption{
+	color: black;
+	font-size: 20px;
+}
+h1{
+margin-left: 700px;
+margin-top: -570px;
+}
+tr{
+transition:all .2s ease-in;
+cursor:pointer;
+text-align: center;
+}
+th{
+padding:12px;
+text-align: center;
+border-bottom: 1px solid #ddd;
+background-color: rgb(64, 128, 128);
+color:#fff;
+}
+td{
+text-align: center;
+}
+th,td{
+padding:12px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+i{
+	color:green;
+	padding-left: -50px;
+}
+.time{
+	width: 100%;
+	height: 500px;
+}
+
+.time img{
+	width: 400px;
+	height: 742px;
+	margin: 106px 200px;
+	padding-left: 207px;
+	
+}
+.container{
+	height: 360px;
+	margin-left: 400px;
+	margin-top:-270px;
+	width: 400px;
+	padding-left:20px;
+	padding-right:20px;
+	background-color: white;
+}
+button{
+	text-decoration: none;
+}	
+a{
+	text-decoration: none;
+}

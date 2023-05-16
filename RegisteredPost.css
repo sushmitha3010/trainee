@@ -1,0 +1,221 @@
+@charset "ISO-8859-1";
+
+
+
+
+
+.menubar {
+    background: rgb(153, 51, 0);
+    text-align: center;
+    margin-top: -20px;
+}
+
+body{
+        
+        background-size: 1600px;
+        background-position: center;
+        box-sizing: border-box;
+        background-repeat: no-repeat;
+        font-family: sans-serif;
+        background-color:Lavender;
+}
+
+.menu-bar {
+    background: rgb(153, 51, 0);
+    text-align: center;
+}
+.menu-bar ul {
+    display: inline-flex;
+    list-style: none;
+    color: #fff;
+    margin-left: -10px;
+
+}
+.menu-bar ul ol {
+    width: 120px;
+    margin: 15px;
+    padding: 10px;
+    margin-left: -40px;
+}
+.menu-bar ul ol a {
+    text-decoration: none;
+    color: #fff;
+}
+.active, .menu-bar ul ol:hover {
+background: rgb(128,0,0);
+border-radius: 3px;
+}
+.menu-bar .fa {
+    margin-right: 8px;
+
+}
+ 
+
+.main{
+    width: 300px;
+    margin: 100px auto 0px auto;
+    padding-left: 100px;
+}
+
+.h2{
+    text-align: center;
+    padding: 20px;
+    font-family: sans-serif;
+}
+.register{
+    background-color: rgba(0,0 , 0, 0.3);
+    width: 500px;
+    height:660px;
+    font-size: 17px;
+    margin-left:-190px;
+    margin-right:10px;
+    margin-top:-70px;
+    padding-top:20px;
+    padding-bottom:20px;
+    align-items: center;
+    border-radius: 80px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 2px 2px 15px rgba(0,0 , 0, 0.3);
+    color: #fff;
+    
+}
+form#register{
+    
+    align-items: center;
+    height:200px;
+    
+}
+label{
+    font-family: sans-serif;
+    font-size: 18px;
+    font-style: italic;
+}
+input#SenderName{
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#SenderMobileNumber {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#SenderAddress {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#ParcelWeight {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#ReceiverName {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+
+input#ReceiverMobileNumber {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#ReceiverAddress {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#parcelCharge{
+	 width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+	
+}
+
+span{
+font-size: 15px;
+font-weight: 15px;
+color:red;
+
+}
+
+table{
+margin-left: 650px;
+margin-top: -400px;
+background-color: rgba(0,0 , 0, 0.3);
+}
+caption{
+	color: black;
+	font-size: 20px;
+}
+
+h1{
+margin-left: 400px;
+}
+tr{
+transition:all .2s ease-in;
+cursor:pointer;
+text-align: center;
+}
+th{
+padding:12px;
+text-align: center;
+border-bottom: 1px solid #ddd;
+background-color: rgb(64, 128, 128);
+color:#fff;
+}
+td{
+text-align: center;
+}
+th,td{
+padding:12px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+i{
+	color:green;
+}
+
+button{
+	text-decoration: none;
+}

@@ -1,0 +1,105 @@
+@charset "ISO-8859-1";
+
+body{
+  
+   
+    background: url(/Image/Payment3.jpg);
+    background-color:Lavender;
+    background-repeat: no-repeat;
+}
+
+.menu-bar {
+    background: rgb(153, 51, 0);
+    text-align: center;
+}
+.menu-bar ul {
+    display: inline-flex;
+    list-style: none;
+    color: #fff;
+
+
+}
+.menu-bar ul ol {
+    width: 120px;
+    margin: 15px;
+    padding: 10px;
+    
+}
+.menu-bar ul ol a {
+    text-decoration: none;
+    color: #fff;
+}
+.active, .menu-bar ul ol:hover {
+background: rgb(128,0,0);
+border-radius: 3px;
+}
+.menu-bar .fa {
+    margin-right: 8px;
+
+}
+    
+
+div.main{
+    width: 300px;
+    margin: 100px auto 0px auto;
+    padding-left: 100px;
+}
+
+h2{
+    text-align: center;
+    padding: 20px;
+    font-family: sans-serif;
+}
+div.register{
+    background-color: rgba(0,0 , 0, 0.2);
+    width: 400px;
+    font-size: 17px;
+    margin-left:-120px;
+    margin-right:10px;
+    padding-top:20px;
+    margin-top:-100px;
+    padding-bottom:20px;
+    align-items: center;
+    border-radius: 60px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 2px 2px 15px rgba(0,0 , 0, 0.3);
+    color: #fff;
+    
+}
+form#register{
+    
+    align-items: center;
+    
+}
+label{
+    font-family: sans-serif;
+    font-size: 18px;
+    font-style: italic;
+}
+input#SenderName{
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+input#Amount {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0%;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0 , 0, 0.3);
+
+}
+span{
+color:red;
+}
+
+h1{
+	margin-left: 400px;
+}
